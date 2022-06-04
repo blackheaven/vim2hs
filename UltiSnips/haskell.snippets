@@ -200,6 +200,11 @@ snippet \case "Pattern match" !w
   ${1:pattern} -> ${2:expression}
 endsnippet
 
+snippet lcase "Pattern match" !w
+\case
+  ${1:pattern} -> ${2:expression}
+endsnippet
+
 snippet caseM "Pattern match Maybe" !w
 case ${1:scrutinee} of
   Nothing -> ${2:expression}
@@ -207,6 +212,12 @@ case ${1:scrutinee} of
 endsnippet
 
 snippet \caseM "Pattern match Maybe" !w
+\case
+  Nothing -> ${1:expression}
+  Just ${2:pattern} -> ${3:$2}
+endsnippet
+
+snippet lcasem "Pattern match Maybe" !w
 \case
   Nothing -> ${1:expression}
   Just ${2:pattern} -> ${3:$2}
@@ -224,6 +235,12 @@ snippet \caseE "Pattern match Either" !w
   Right ${2:pattern} -> ${3:$2}
 endsnippet
 
+snippet lcasee "Pattern match Either" !w
+\case
+  Left ${1:e} -> ${2:$1}
+  Right ${2:pattern} -> ${3:$2}
+endsnippet
+
 snippet caseL "Pattern match List" !w
 case ${1:scrutinee} of
   [] -> ${2:expression}
@@ -231,6 +248,12 @@ case ${1:scrutinee} of
 endsnippet
 
 snippet \caseL "Pattern match List" !w
+\case
+  [] -> ${1:expression}
+  (${2:x}:${3:xs}) -> ${4:expression}
+endsnippet
+
+snippet lcasel "Pattern match List" !w
 \case
   [] -> ${1:expression}
   (${2:x}:${3:xs}) -> ${4:expression}
